@@ -20,16 +20,16 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define( 'DB_NAME', 'ironchef_wp276' );
+define( 'DB_NAME', 'xdesigne_main' );
 
 /** MySQL database username */
-define( 'DB_USER', 'ironchef_wp276' );
+define( 'DB_USER', 'xdesigne_user' );
 
 /** MySQL database password */
-define( 'DB_PASSWORD', '8!a3SQS(7p' );
+define( 'DB_PASSWORD', 'Yy%46c9f' );
 
 /** MySQL hostname */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'localhost:3306' );
 
 /** Database charset to use in creating database tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
