@@ -1,0 +1,44 @@
+
+---Downloaded files---
+The import files for: Demo Import Miex were successfully downloaded!
+Initial max execution time = 30
+Files info:
+Site URL = https://x.microsiliconlancer.com
+Data file = /home/ironchef/x.microsiliconlancer.com/wp-content/uploads/2021/10/demo-content-import-file_2021-10-22__08-05-58.xml
+Widget file = /home/ironchef/x.microsiliconlancer.com/wp-content/uploads/2021/10/demo-widgets-import-file_2021-10-22__08-05-58.json
+Customizer file = not defined!
+Redux files:
+not defined!
+
+------
+New AJAX call!
+
+
+---Importing widgets---
+Primary Sidebar : 
+
+miex Search - No Title - Imported
+miex Recent Posts - No Title - Imported
+Categories - No Title - Imported
+Tag Cloud - No Title - Imported
+
+Footer One Widget : 
+
+Text - No Title - Imported
+
+Footer Two Widget : 
+
+Custom HTML - Contacts - Imported
+
+Footer Three Widget : 
+
+Custom HTML - Recent Posts - Imported
+
+Footer Four Widget : 
+
+Text - No Title - Imported
+
+
+
+---ocdi/after_import---
+

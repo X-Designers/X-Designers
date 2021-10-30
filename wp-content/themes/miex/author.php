@@ -1,0 +1,84 @@
+<?php
+ $miex_redux_demo = get_option('redux_demo');
+get_header(); ?>
+
+              <h2 class="text-center"><?php
+                    /*
+                     * Queue the first post, that way we know what author
+                     * we're dealing with (if that is the case).
+                     *
+                     * We reset this later so we can run the loop properly
+                     * with a call to rewind_posts().
+                     */
+                    the_post();
+
+                    printf( esc_html__( 'All posts by %s', 'miex' ), get_the_author() );
+                ?></h2>
+
+    <section class="blog-main-content section-padding">
+            <div class="container">
+                <div class="row">
+                    <div class="col col-md-8">
+                        <div class="blog-grids">
+                          <?php 
+                              while (have_posts()): the_post(); 
+                          ?>
+                          <?php $single_video = get_post_meta(get_the_ID(),'_cmb_single_video', true); ?>
+                          <?php if ( has_post_format('video') ) { ?>
+                            <div class="grid video-post">
+                                <div class="entry-media">
+                                    <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id());?>" alt>
+                                    <div class="video-holder">
+                                        <a href="<?php echo esc_url($single_video);?>" class="video-btn" data-type="iframe">
+                                            <i class="fa fa-play"></i>
+                                        </a>
+                                    </div>                                    
+                                </div>
+                              <?php } else { ?>
+                            <div class="grid">
+                                <div class="entry-media">
+                                    <img src="<?php echo wp_get_attachment_url(get_post_thumbnail_id());?>" alt>
+                                </div>
+                              <?php } ?>
+                                <div class="entry-title-meta">
+                                    <ul class="entry-meta">
+                                        <li><a href="#"><?php the_time(get_option( 'date_format' ));?></a></li>
+                                        <li><a href="#"><i class="fa fa-comments"></i> <?php comments_number( esc_html__('0 Comments', 'miex'), 
+                              esc_html__('1 Comment', 'miex'), esc_html__('% Comments', 'miex') ); ?></a></li>
+                                        <li><a href="#"><i class="fa fa-tag"></i> <?php echo get_the_tag_list(); ?></a></li>
+                                    </ul>
+                                    <h3><a href="<?php the_permalink();?>"><?php the_title();?></a></h3>
+                                </div>
+                                <div class="entry-body">
+                                    <p><?php if(isset($miex_redux_demo['blog_excerpt'])){?>
+                                <?php echo esc_attr(miex_excerpt($miex_redux_demo['blog_excerpt'])); ?>
+                                <?php }else{?>
+                                <?php echo esc_attr(miex_excerpt(50)); 
+                                }
+                                ?></p>
+                                    <a href="<?php the_permalink();?>" class="read-more"><?php if(isset($miex_redux_demo['read_more'])){?>
+                                    <?php echo htmlspecialchars_decode(esc_attr($miex_redux_demo['read_more']));?>
+                                    <?php }else{?>
+                                    <?php echo esc_html__( 'read more', 'miex' );
+                                    }
+                                    ?></a>
+                                </div>
+                            </div>
+                          <?php endwhile; ?>
+                            
+                          <div class="pagination-wrapper">
+                              <?php miex_pagination();?>
+                          </div>                        
+                        </div>
+                      </div>
+                    <div class="col col-md-4">
+                        <div class="blog-sidebar">
+                            <?php get_sidebar();?>
+                        </div>                        
+                    </div>
+              </div>
+          </div> <!-- end container -->
+      </section>
+<?php
+get_footer();
+?>
